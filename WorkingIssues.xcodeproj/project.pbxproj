@@ -24,6 +24,7 @@
 		FF0182E425E5FB96006268A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF0182E725E5FB96006268A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF0182E925E5FB96006268A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF0182F025E5FC19006268A4 /* 质量博客.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "质量博客.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 				FF0182E425E5FB96006268A4 /* Assets.xcassets */,
 				FF0182E625E5FB96006268A4 /* LaunchScreen.storyboard */,
 				FF0182E925E5FB96006268A4 /* Info.plist */,
+				FF0182F025E5FC19006268A4 /* 质量博客.md */,
 			);
 			path = WorkingIssues;
 			sourceTree = "<group>";
