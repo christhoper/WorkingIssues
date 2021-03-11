@@ -26,6 +26,7 @@
 		FF0182E925E5FB96006268A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF0182F025E5FC19006268A4 /* 质量博客.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "质量博客.md"; sourceTree = "<group>"; };
 		FF0182F225E60038006268A4 /* 代码上传到GitHub.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "代码上传到GitHub.md"; sourceTree = "<group>"; };
+		FF999F5325EB86F800C55441 /* 网络.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "网络.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +68,7 @@
 				FF0182E925E5FB96006268A4 /* Info.plist */,
 				FF0182F025E5FC19006268A4 /* 质量博客.md */,
 				FF0182F225E60038006268A4 /* 代码上传到GitHub.md */,
+				FF999F5325EB86F800C55441 /* 网络.md */,
 			);
 			path = WorkingIssues;
 			sourceTree = "<group>";
