@@ -13,6 +13,29 @@
 		FF0182E325E5FB96006268A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0182E125E5FB96006268A4 /* Main.storyboard */; };
 		FF0182E525E5FB96006268A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF0182E425E5FB96006268A4 /* Assets.xcassets */; };
 		FF0182E825E5FB96006268A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0182E625E5FB96006268A4 /* LaunchScreen.storyboard */; };
+		FF9FEA3525FAFCC600088DB8 /* Chain Of Responsibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA3425FAFCC600088DB8 /* Chain Of Responsibility.swift */; };
+		FF9FEA3825FAFCE800088DB8 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA3725FAFCE800088DB8 /* Command.swift */; };
+		FF9FEA3B25FAFCF700088DB8 /* Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA3A25FAFCF700088DB8 /* Interpreter.swift */; };
+		FF9FEA3E25FAFD0500088DB8 /* Iterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA3D25FAFD0500088DB8 /* Iterator.swift */; };
+		FF9FEA4125FAFD1900088DB8 /* Mediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA4025FAFD1900088DB8 /* Mediator.swift */; };
+		FF9FEA4425FAFD2600088DB8 /* Memento.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA4325FAFD2600088DB8 /* Memento.swift */; };
+		FF9FEA4725FAFD3400088DB8 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA4625FAFD3400088DB8 /* Observer.swift */; };
+		FF9FEA4A25FAFD4100088DB8 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA4925FAFD4100088DB8 /* State.swift */; };
+		FF9FEA4D25FAFD4E00088DB8 /* Strategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA4C25FAFD4E00088DB8 /* Strategy.swift */; };
+		FF9FEA5025FAFD5F00088DB8 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA4F25FAFD5F00088DB8 /* Visitor.swift */; };
+		FF9FEA5325FAFDEF00088DB8 /* Abstract Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA5225FAFDEF00088DB8 /* Abstract Factory.swift */; };
+		FF9FEA5625FAFDFF00088DB8 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA5525FAFDFF00088DB8 /* Builder.swift */; };
+		FF9FEA5925FAFE0D00088DB8 /* Factory Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA5825FAFE0D00088DB8 /* Factory Method.swift */; };
+		FF9FEA5C25FAFE1E00088DB8 /* Prototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA5B25FAFE1E00088DB8 /* Prototype.swift */; };
+		FF9FEA5F25FAFE2A00088DB8 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA5E25FAFE2A00088DB8 /* Singleton.swift */; };
+		FF9FEA6225FAFE3E00088DB8 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA6125FAFE3E00088DB8 /* Adapter.swift */; };
+		FF9FEA6525FAFE4800088DB8 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA6425FAFE4800088DB8 /* Bridge.swift */; };
+		FF9FEA6825FAFE5900088DB8 /* Composite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA6725FAFE5900088DB8 /* Composite.swift */; };
+		FF9FEA6B25FAFE6500088DB8 /* Decorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA6A25FAFE6500088DB8 /* Decorator.swift */; };
+		FF9FEA6E25FAFE7D00088DB8 /* Flyweight.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA6D25FAFE7D00088DB8 /* Flyweight.swift */; };
+		FF9FEA7125FAFE8800088DB8 /* Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA7025FAFE8800088DB8 /* Facade.swift */; };
+		FF9FEA7425FAFE9D00088DB8 /* Protection Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA7325FAFE9D00088DB8 /* Protection Proxy.swift */; };
+		FF9FEA7725FAFEAD00088DB8 /* Virtual Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA7625FAFEAD00088DB8 /* Virtual Proxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +49,31 @@
 		FF0182E925E5FB96006268A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF0182F025E5FC19006268A4 /* 质量博客.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "质量博客.md"; sourceTree = "<group>"; };
 		FF0182F225E60038006268A4 /* 代码上传到GitHub.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "代码上传到GitHub.md"; sourceTree = "<group>"; };
+		FF95EC5E25F9B01100204968 /* 设计模式.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "设计模式.md"; sourceTree = "<group>"; };
 		FF999F5325EB86F800C55441 /* 网络.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "网络.md"; sourceTree = "<group>"; };
+		FF9FEA3425FAFCC600088DB8 /* Chain Of Responsibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chain Of Responsibility.swift"; sourceTree = "<group>"; };
+		FF9FEA3725FAFCE800088DB8 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		FF9FEA3A25FAFCF700088DB8 /* Interpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpreter.swift; sourceTree = "<group>"; };
+		FF9FEA3D25FAFD0500088DB8 /* Iterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iterator.swift; sourceTree = "<group>"; };
+		FF9FEA4025FAFD1900088DB8 /* Mediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mediator.swift; sourceTree = "<group>"; };
+		FF9FEA4325FAFD2600088DB8 /* Memento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memento.swift; sourceTree = "<group>"; };
+		FF9FEA4625FAFD3400088DB8 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		FF9FEA4925FAFD4100088DB8 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		FF9FEA4C25FAFD4E00088DB8 /* Strategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strategy.swift; sourceTree = "<group>"; };
+		FF9FEA4F25FAFD5F00088DB8 /* Visitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visitor.swift; sourceTree = "<group>"; };
+		FF9FEA5225FAFDEF00088DB8 /* Abstract Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Abstract Factory.swift"; sourceTree = "<group>"; };
+		FF9FEA5525FAFDFF00088DB8 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		FF9FEA5825FAFE0D00088DB8 /* Factory Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Factory Method.swift"; sourceTree = "<group>"; };
+		FF9FEA5B25FAFE1E00088DB8 /* Prototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prototype.swift; sourceTree = "<group>"; };
+		FF9FEA5E25FAFE2A00088DB8 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		FF9FEA6125FAFE3E00088DB8 /* Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
+		FF9FEA6425FAFE4800088DB8 /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
+		FF9FEA6725FAFE5900088DB8 /* Composite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composite.swift; sourceTree = "<group>"; };
+		FF9FEA6A25FAFE6500088DB8 /* Decorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decorator.swift; sourceTree = "<group>"; };
+		FF9FEA6D25FAFE7D00088DB8 /* Flyweight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flyweight.swift; sourceTree = "<group>"; };
+		FF9FEA7025FAFE8800088DB8 /* Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facade.swift; sourceTree = "<group>"; };
+		FF9FEA7325FAFE9D00088DB8 /* Protection Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protection Proxy.swift"; sourceTree = "<group>"; };
+		FF9FEA7625FAFEAD00088DB8 /* Virtual Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Virtual Proxy.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +106,7 @@
 		FF0182DA25E5FB96006268A4 /* WorkingIssues */ = {
 			isa = PBXGroup;
 			children = (
+				FF9FEA3025FAFC1700088DB8 /* DesignDemol */,
 				FF0182DB25E5FB96006268A4 /* AppDelegate.swift */,
 				FF0182DD25E5FB96006268A4 /* SceneDelegate.swift */,
 				FF0182DF25E5FB96006268A4 /* ViewController.swift */,
@@ -69,8 +117,63 @@
 				FF0182F025E5FC19006268A4 /* 质量博客.md */,
 				FF0182F225E60038006268A4 /* 代码上传到GitHub.md */,
 				FF999F5325EB86F800C55441 /* 网络.md */,
+				FF95EC5E25F9B01100204968 /* 设计模式.md */,
 			);
 			path = WorkingIssues;
+			sourceTree = "<group>";
+		};
+		FF9FEA3025FAFC1700088DB8 /* DesignDemol */ = {
+			isa = PBXGroup;
+			children = (
+				FF9FEA3325FAFC8400088DB8 /* 结构型Demol */,
+				FF9FEA3225FAFC5D00088DB8 /* 创建型Demol */,
+				FF9FEA3125FAFC4600088DB8 /* 行为型Demol */,
+			);
+			path = DesignDemol;
+			sourceTree = "<group>";
+		};
+		FF9FEA3125FAFC4600088DB8 /* 行为型Demol */ = {
+			isa = PBXGroup;
+			children = (
+				FF9FEA3425FAFCC600088DB8 /* Chain Of Responsibility.swift */,
+				FF9FEA3725FAFCE800088DB8 /* Command.swift */,
+				FF9FEA3A25FAFCF700088DB8 /* Interpreter.swift */,
+				FF9FEA3D25FAFD0500088DB8 /* Iterator.swift */,
+				FF9FEA4025FAFD1900088DB8 /* Mediator.swift */,
+				FF9FEA4325FAFD2600088DB8 /* Memento.swift */,
+				FF9FEA4625FAFD3400088DB8 /* Observer.swift */,
+				FF9FEA4925FAFD4100088DB8 /* State.swift */,
+				FF9FEA4C25FAFD4E00088DB8 /* Strategy.swift */,
+				FF9FEA4F25FAFD5F00088DB8 /* Visitor.swift */,
+			);
+			path = "行为型Demol";
+			sourceTree = "<group>";
+		};
+		FF9FEA3225FAFC5D00088DB8 /* 创建型Demol */ = {
+			isa = PBXGroup;
+			children = (
+				FF9FEA5225FAFDEF00088DB8 /* Abstract Factory.swift */,
+				FF9FEA5525FAFDFF00088DB8 /* Builder.swift */,
+				FF9FEA5825FAFE0D00088DB8 /* Factory Method.swift */,
+				FF9FEA5B25FAFE1E00088DB8 /* Prototype.swift */,
+				FF9FEA5E25FAFE2A00088DB8 /* Singleton.swift */,
+			);
+			path = "创建型Demol";
+			sourceTree = "<group>";
+		};
+		FF9FEA3325FAFC8400088DB8 /* 结构型Demol */ = {
+			isa = PBXGroup;
+			children = (
+				FF9FEA6125FAFE3E00088DB8 /* Adapter.swift */,
+				FF9FEA6425FAFE4800088DB8 /* Bridge.swift */,
+				FF9FEA6725FAFE5900088DB8 /* Composite.swift */,
+				FF9FEA6A25FAFE6500088DB8 /* Decorator.swift */,
+				FF9FEA6D25FAFE7D00088DB8 /* Flyweight.swift */,
+				FF9FEA7025FAFE8800088DB8 /* Facade.swift */,
+				FF9FEA7325FAFE9D00088DB8 /* Protection Proxy.swift */,
+				FF9FEA7625FAFEAD00088DB8 /* Virtual Proxy.swift */,
+			);
+			path = "结构型Demol";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +246,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF9FEA6525FAFE4800088DB8 /* Bridge.swift in Sources */,
+				FF9FEA3E25FAFD0500088DB8 /* Iterator.swift in Sources */,
+				FF9FEA5F25FAFE2A00088DB8 /* Singleton.swift in Sources */,
+				FF9FEA7125FAFE8800088DB8 /* Facade.swift in Sources */,
+				FF9FEA6B25FAFE6500088DB8 /* Decorator.swift in Sources */,
+				FF9FEA7725FAFEAD00088DB8 /* Virtual Proxy.swift in Sources */,
+				FF9FEA4725FAFD3400088DB8 /* Observer.swift in Sources */,
+				FF9FEA3B25FAFCF700088DB8 /* Interpreter.swift in Sources */,
+				FF9FEA4A25FAFD4100088DB8 /* State.swift in Sources */,
+				FF9FEA7425FAFE9D00088DB8 /* Protection Proxy.swift in Sources */,
+				FF9FEA3525FAFCC600088DB8 /* Chain Of Responsibility.swift in Sources */,
+				FF9FEA5025FAFD5F00088DB8 /* Visitor.swift in Sources */,
 				FF0182E025E5FB96006268A4 /* ViewController.swift in Sources */,
 				FF0182DC25E5FB96006268A4 /* AppDelegate.swift in Sources */,
+				FF9FEA5925FAFE0D00088DB8 /* Factory Method.swift in Sources */,
+				FF9FEA3825FAFCE800088DB8 /* Command.swift in Sources */,
+				FF9FEA6225FAFE3E00088DB8 /* Adapter.swift in Sources */,
+				FF9FEA6E25FAFE7D00088DB8 /* Flyweight.swift in Sources */,
+				FF9FEA6825FAFE5900088DB8 /* Composite.swift in Sources */,
+				FF9FEA4D25FAFD4E00088DB8 /* Strategy.swift in Sources */,
+				FF9FEA4425FAFD2600088DB8 /* Memento.swift in Sources */,
+				FF9FEA4125FAFD1900088DB8 /* Mediator.swift in Sources */,
 				FF0182DE25E5FB96006268A4 /* SceneDelegate.swift in Sources */,
+				FF9FEA5C25FAFE1E00088DB8 /* Prototype.swift in Sources */,
+				FF9FEA5325FAFDEF00088DB8 /* Abstract Factory.swift in Sources */,
+				FF9FEA5625FAFDFF00088DB8 /* Builder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
