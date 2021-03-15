@@ -49,8 +49,9 @@
 		FF0182E925E5FB96006268A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF0182F025E5FC19006268A4 /* 质量博客.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "质量博客.md"; sourceTree = "<group>"; };
 		FF0182F225E60038006268A4 /* 代码上传到GitHub.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "代码上传到GitHub.md"; sourceTree = "<group>"; };
+		FF250BD025FEF7CE00FB9FCC /* 网络HTTP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "网络HTTP.md"; sourceTree = "<group>"; };
 		FF95EC5E25F9B01100204968 /* 设计模式.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "设计模式.md"; sourceTree = "<group>"; };
-		FF999F5325EB86F800C55441 /* 网络.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "网络.md"; sourceTree = "<group>"; };
+		FF999F5325EB86F800C55441 /* 网络TCP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "网络TCP.md"; sourceTree = "<group>"; };
 		FF9FEA3425FAFCC600088DB8 /* Chain Of Responsibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chain Of Responsibility.swift"; sourceTree = "<group>"; };
 		FF9FEA3725FAFCE800088DB8 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		FF9FEA3A25FAFCF700088DB8 /* Interpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpreter.swift; sourceTree = "<group>"; };
@@ -116,7 +117,8 @@
 				FF0182E925E5FB96006268A4 /* Info.plist */,
 				FF0182F025E5FC19006268A4 /* 质量博客.md */,
 				FF0182F225E60038006268A4 /* 代码上传到GitHub.md */,
-				FF999F5325EB86F800C55441 /* 网络.md */,
+				FF999F5325EB86F800C55441 /* 网络TCP.md */,
+				FF250BD025FEF7CE00FB9FCC /* 网络HTTP.md */,
 				FF95EC5E25F9B01100204968 /* 设计模式.md */,
 			);
 			path = WorkingIssues;
