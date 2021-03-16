@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         commandtest()
         interpreterTest()
         iteratorTest()
+        mediatorTest()
     }
 
     func chainOfResponsibilityTest() {
@@ -41,5 +42,10 @@ class ViewController: UIViewController {
         iterator.test()
     }
 
+    func mediatorTest() {
+        let mediator = MediatorTest()
+        mediator.test()
+    }
+    
 }
 
