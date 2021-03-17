@@ -13,6 +13,9 @@
 		FF0182E325E5FB96006268A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0182E125E5FB96006268A4 /* Main.storyboard */; };
 		FF0182E525E5FB96006268A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF0182E425E5FB96006268A4 /* Assets.xcassets */; };
 		FF0182E825E5FB96006268A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0182E625E5FB96006268A4 /* LaunchScreen.storyboard */; };
+		FF4ADCDA260195B70014B335 /* XNU.png in Resources */ = {isa = PBXBuildFile; fileRef = FF4ADCD9260195B70014B335 /* XNU.png */; };
+		FF4ADCDD26019C980014B335 /* About XNU.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4ADCDC26019C980014B335 /* About XNU.swift */; };
+		FF4ADCE72601F1250014B335 /* dyld.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4ADCE62601F1250014B335 /* dyld.swift */; };
 		FF9FEA3525FAFCC600088DB8 /* Chain Of Responsibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA3425FAFCC600088DB8 /* Chain Of Responsibility.swift */; };
 		FF9FEA3825FAFCE800088DB8 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA3725FAFCE800088DB8 /* Command.swift */; };
 		FF9FEA3B25FAFCF700088DB8 /* Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA3A25FAFCF700088DB8 /* Interpreter.swift */; };
@@ -50,6 +53,9 @@
 		FF0182F025E5FC19006268A4 /* 质量博客.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "质量博客.md"; sourceTree = "<group>"; };
 		FF0182F225E60038006268A4 /* 代码上传到GitHub.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "代码上传到GitHub.md"; sourceTree = "<group>"; };
 		FF250BD025FEF7CE00FB9FCC /* 网络HTTP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "网络HTTP.md"; sourceTree = "<group>"; };
+		FF4ADCD9260195B70014B335 /* XNU.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = XNU.png; sourceTree = "<group>"; };
+		FF4ADCDC26019C980014B335 /* About XNU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "About XNU.swift"; sourceTree = "<group>"; };
+		FF4ADCE62601F1250014B335 /* dyld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dyld.swift; sourceTree = "<group>"; };
 		FF95EC5E25F9B01100204968 /* 设计模式.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "设计模式.md"; sourceTree = "<group>"; };
 		FF999F5325EB86F800C55441 /* 网络TCP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "网络TCP.md"; sourceTree = "<group>"; };
 		FF9FEA3425FAFCC600088DB8 /* Chain Of Responsibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chain Of Responsibility.swift"; sourceTree = "<group>"; };
@@ -107,6 +113,7 @@
 		FF0182DA25E5FB96006268A4 /* WorkingIssues */ = {
 			isa = PBXGroup;
 			children = (
+				FF4ADCD82601954A0014B335 /* App完整的启动过程 */,
 				FF9FEA3025FAFC1700088DB8 /* DesignDemol */,
 				FF0182DB25E5FB96006268A4 /* AppDelegate.swift */,
 				FF0182DD25E5FB96006268A4 /* SceneDelegate.swift */,
@@ -122,6 +129,16 @@
 				FF95EC5E25F9B01100204968 /* 设计模式.md */,
 			);
 			path = WorkingIssues;
+			sourceTree = "<group>";
+		};
+		FF4ADCD82601954A0014B335 /* App完整的启动过程 */ = {
+			isa = PBXGroup;
+			children = (
+				FF4ADCD9260195B70014B335 /* XNU.png */,
+				FF4ADCDC26019C980014B335 /* About XNU.swift */,
+				FF4ADCE62601F1250014B335 /* dyld.swift */,
+			);
+			path = "App完整的启动过程";
 			sourceTree = "<group>";
 		};
 		FF9FEA3025FAFC1700088DB8 /* DesignDemol */ = {
@@ -236,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF0182E825E5FB96006268A4 /* LaunchScreen.storyboard in Resources */,
+				FF4ADCDA260195B70014B335 /* XNU.png in Resources */,
 				FF0182E525E5FB96006268A4 /* Assets.xcassets in Resources */,
 				FF0182E325E5FB96006268A4 /* Main.storyboard in Resources */,
 			);
@@ -257,6 +275,7 @@
 				FF9FEA4725FAFD3400088DB8 /* Observer.swift in Sources */,
 				FF9FEA3B25FAFCF700088DB8 /* Interpreter.swift in Sources */,
 				FF9FEA4A25FAFD4100088DB8 /* State.swift in Sources */,
+				FF4ADCDD26019C980014B335 /* About XNU.swift in Sources */,
 				FF9FEA7425FAFE9D00088DB8 /* Protection Proxy.swift in Sources */,
 				FF9FEA3525FAFCC600088DB8 /* Chain Of Responsibility.swift in Sources */,
 				FF9FEA5025FAFD5F00088DB8 /* Visitor.swift in Sources */,
@@ -267,6 +286,7 @@
 				FF9FEA6225FAFE3E00088DB8 /* Adapter.swift in Sources */,
 				FF9FEA6E25FAFE7D00088DB8 /* Flyweight.swift in Sources */,
 				FF9FEA6825FAFE5900088DB8 /* Composite.swift in Sources */,
+				FF4ADCE72601F1250014B335 /* dyld.swift in Sources */,
 				FF9FEA4D25FAFD4E00088DB8 /* Strategy.swift in Sources */,
 				FF9FEA4425FAFD2600088DB8 /* Memento.swift in Sources */,
 				FF9FEA4125FAFD1900088DB8 /* Mediator.swift in Sources */,
