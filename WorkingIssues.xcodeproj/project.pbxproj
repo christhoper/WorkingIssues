@@ -52,6 +52,7 @@
 		FF0182E925E5FB96006268A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF0182F025E5FC19006268A4 /* 质量博客.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "质量博客.md"; sourceTree = "<group>"; };
 		FF0182F225E60038006268A4 /* 代码上传到GitHub.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "代码上传到GitHub.md"; sourceTree = "<group>"; };
+		FF0769572604A153003F2BFC /* 一些常用的、专业的术语.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "一些常用的、专业的术语.md"; sourceTree = "<group>"; };
 		FF250BD025FEF7CE00FB9FCC /* 网络HTTP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "网络HTTP.md"; sourceTree = "<group>"; };
 		FF4ADCD9260195B70014B335 /* XNU.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = XNU.png; sourceTree = "<group>"; };
 		FF4ADCDC26019C980014B335 /* About XNU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "About XNU.swift"; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 				FF0182E425E5FB96006268A4 /* Assets.xcassets */,
 				FF0182E625E5FB96006268A4 /* LaunchScreen.storyboard */,
 				FF0182E925E5FB96006268A4 /* Info.plist */,
+				FF0769572604A153003F2BFC /* 一些常用的、专业的术语.md */,
 				FF0182F025E5FC19006268A4 /* 质量博客.md */,
 				FF0182F225E60038006268A4 /* 代码上传到GitHub.md */,
 				FF999F5325EB86F800C55441 /* 网络TCP.md */,

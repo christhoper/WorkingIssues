@@ -60,7 +60,7 @@ XNU启动launchd的过程：
 
 //MARK: - XNU加载Mach-O
 /*
- execve()函数是加载Mach_O文件的入口：
+ execve()函数是加载Mach-O文件的入口：
  
  uap是对可执行文件的封装，uap->fname可以得到执行文件的文件名
  uap->argp 可以得到执行文件的参数列表
@@ -135,17 +135,17 @@ int execve(proc_t p, struct execve_args *uap, int32_t *retval)
      { NULL, NULL}
  };
  -------------------------------------------------------------------------------
- 对XNU加载Mach_O文件前期工作流程大概整理一下：
+ 对XNU加载Mach-O文件前期工作流程大概整理一下：
  加载的launchd进程管理之后，从调用execve()函数起：
  execve() -> __mac_execve() -> exe_active_imgact() —>
  -------------------------------------------------------------------------------
  
- 可以从上面的exesw数组中窥探出，单指令集可执行文件（Mach_O文件）最终调用的是exec_mach_imgact()函数，多指令集可执行文件调用的是exec_fat_imgact()，但是最终还是分解成单指令集可执行文件调用即:exec_mach_imgact()，shell脚本调用的是:exec_shell_imgact()
+ 可以从上面的exesw数组中窥探出，单指令集可执行文件（Mach-O文件）最终调用的是exec_mach_imgact()函数，多指令集可执行文件调用的是exec_fat_imgact()，但是最终还是分解成单指令集可执行文件调用即:exec_mach_imgact()，shell脚本调用的是:exec_shell_imgact()
  
- exec_mach_imgact()函数中的一个重要的功能就是将Mach_O文件映射到内存，将Mach_O映射到内存的函数是load_machfile()函数，所以在介绍exec_mach_imgact()函数之前，先介绍load_machfile()函数。
+ exec_mach_imgact()函数中的一个重要的功能就是将Mach-O文件映射到内存，将Mach-O映射到内存的函数是load_machfile()函数，所以在介绍exec_mach_imgact()函数之前，先介绍load_machfile()函数。
  
  
- load_machfile()函数会为Mach_O分配虚拟内存，并计算出Mach_O文件和dyld随机偏移量的值，之后会调用解析Mach_O文件的函数 parse_machfile()函数。
+ load_machfile()函数会为Mach-O分配虚拟内存，并计算出Mach-O文件和dyld随机偏移量的值，之后会调用解析Mach-O文件的函数 parse_machfile()函数。
  
  load_Machfile()函数大概实现：👇
  
@@ -190,7 +190,7 @@ int execve(proc_t p, struct execve_args *uap, int32_t *retval)
      /*
       * Compute a random offset for ASLR, and an independent random offset for dyld.
       */
-    ⚠️⚠️⚠️⚠️⚠️计算Mach_O文件偏移量和dyld偏移量
+    ⚠️⚠️⚠️⚠️⚠️计算Mach-O文件偏移量和dyld偏移量
      if (!(imgp->ip_flags & IMGPF_DISABLE_ASLR)) {
          uint64_t max_slide_pages;
 
@@ -234,12 +234,12 @@ int execve(proc_t p, struct execve_args *uap, int32_t *retval)
 /*
  上面的pagezero，是可执行程序的第一个段程序的空指针异常，用于捕获，总是位于虚拟内存最开始的位置，大小和CPU有关，在64位的CPU架构下，pagezero的大小是4G。
  
- 在load_machfile()函数中，已经为Mach_O文件分配了虚拟内存，而解析函数parse_machfile()进行了一些操作：
+ 在load_machfile()函数中，已经为Mach-O文件分配了虚拟内存，而解析函数parse_machfile()进行了一些操作：
  
  ✅ parse_machfile()函数
  
  parse_machfile()函数主要做了三方面的工作：
- 1、Mach_O文件的解析，以及对每个segment进行内存分配
+ 1、Mach-O文件的解析，以及对每个segment进行内存分配
  2、dyld的加载
  3、dyld的解析及虚拟内存分配
  
@@ -359,7 +359,7 @@ int execve(proc_t p, struct execve_args *uap, int32_t *retval)
  parse_machfile()函数中调用了load_dylinker()函数
  至此总结下上面的流程：
  --------------------------------------------------------------------------------------------------
-XNU加载launchd进程管理->加载Mach_O
+XNU加载launchd进程管理->加载Mach-O
  load_init_program() -> load_init_program_at_path() -> execve() -> __mac_execve() -> exec_activate_image() -> load_machfile() -> parse_machfile()
  --------------------------------------------------------------------------------------------------
  
@@ -406,7 +406,7 @@ XNU加载launchd进程管理->加载Mach_O
      *myresult = load_result_null;
      myresult->is64bit = result->is64bit;
 
-     // ⚠️⚠️⚠️⚠️ 解析dyld：因为dyld一样是Mach_O文件，所以同样调用的是parse_machfile()方法，同样也映射了segment内存
+     // ⚠️⚠️⚠️⚠️ 解析dyld：因为dyld一样是Mach-O文件，所以同样调用的是parse_machfile()方法，同样也映射了segment内存
      ret = parse_machfile(vp, map, thread, header, file_offset,
                           macho_size, depth, slide, 0, myresult, result, imgp);
  novp_out:
@@ -416,7 +416,7 @@ XNU加载launchd进程管理->加载Mach_O
 
  
  ✅ exec_mach_imagct()函数
- Mach_O文件和dyld被映射到虚拟内存后，再看上面提到的，介绍完load_linker()系列操作后，看下exec_mach_imagct()函数
+ Mach-O文件和dyld被映射到虚拟内存后，再看上面提到的，介绍完load_linker()系列操作后，看下exec_mach_imagct()函数
  
  static int exec_mach_imgact(struct image_params *imgp)
  {
@@ -470,7 +470,7 @@ XNU加载launchd进程管理->加载Mach_O
      return(error);
  }
  
- exec_mach_imagct()函数的操作：调用load_machfile()函数将Mach_O文件映射到内存中，以及设置了一些内存映射的操作权限，最后调用activate_exec_stata()函数；
+ exec_mach_imagct()函数的操作：调用load_machfile()函数将Mach-O文件映射到内存中，以及设置了一些内存映射的操作权限，最后调用activate_exec_stata()函数；
  
  ✅ activate_exec_state()函数
  activate_exec_state()函数的主要实现：👇
@@ -506,12 +506,12 @@ XNU加载launchd进程管理->加载Mach_O
  }
 
  上面函数实际就是把entry_point的地址直接写入到了寄存器里面；
- 到此，UNX将Mach_O文件以及dyld加载到内存的过程就完成了。
+ 到此，UNX将Mach-O文件以及dyld加载到内存的过程就完成了。
  
  ---------------------------------------------------------------------------------------------------
- 总结UNX加载Mach_O文件及dyld到内存的流程：
+ 总结UNX加载Mach-O文件及dyld到内存的流程：
  
-XNU加载launchd进程管理->加载Mach_O->dyld加载
+XNU加载launchd进程管理->加载Mach-O->dyld加载
  1、load_init_program() ->
  2、load_init_program_at_path() ->
  3、execve() ->
@@ -528,19 +528,19 @@ XNU加载launchd进程管理->加载Mach_O->dyld加载
  
  再次对上面函数说明：
  1-2函数：是加载launchd进程函数；
- 3函数：是Mach_O文件加载的入口；
+ 3函数：是Mach-O文件加载的入口；
  4函数：判断是否使用fork_create_child()函数启动新进程，如果需要，则后面使用的新进程，生成新的task；
  5函数：按照可执行文件的格式，执行不同的函数（目前有三种）；
- 6函数：给Mach_O文件分配虚拟内存，并且计算Mach_O文件和dyld随机偏移量；
- 7函数：主要做了三个工作：Mach_O文件解析，对每个segment进行内存分配、dyld的加载、dyld的解析以及虚拟内存的分配；
+ 6函数：给Mach-O文件分配虚拟内存，并且计算Mach-O文件和dyld随机偏移量；
+ 7函数：主要做了三个工作：Mach-O文件解析，对每个segment进行内存分配、dyld的加载、dyld的解析以及虚拟内存的分配；
  8函数：主要是加载dyld及对调用7函数，对dyld解析；
  9函数：是解析dyld；
- 10函数：将Mach_O文件映射到内存中，设置内存映射操作权限
- 11函数：加载Mach_O文件到内存
+ 10函数：将Mach-O文件映射到内存中，设置内存映射操作权限
+ 11函数：加载Mach-O文件到内存
  12-13函数：设置_dyld_start地址入口
  
  文字概括：
-XNU内核启动后，启动加载launchd进程，在启动launchd进程之后再启动其他守护进程，之后就是Mach_O及dyld进行加载，给他们分配内存，将app映射到内存中
+XNU内核启动后，启动加载launchd进程，在启动launchd进程之后再启动其他守护进程，之后就是Mach-O及dyld进行加载，给他们分配内存，将app映射到内存中
  
  */
 
