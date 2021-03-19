@@ -228,9 +228,231 @@ import Foundation
 */
 
 //MARK: - 动态链接库
+// recursive: 递归
+
 /*
  Link
+ 在主程序以及其环境变量中的相关动态库都转成ImageLoader对象后，dyld会将这些ImageLoader链接起来，链接使用的是ImageLoader自身的link()函数。
+ link()函数大体实现: 👇
  
+ void ImageLoader::link(const LinkContext& context, bool forceLazysBound, bool preflightOnly, bool neverUnload, const RPathChain& loaderRPaths, const char* imagePath)
+ {
+     // 递归加载所有依赖库
+     this->recursiveLoadLibraries(context, preflightOnly, loaderRPaths, imagePath);
+
+     // ⚠️递归修正自己和依赖库的基地址，因为ASLR的原因，需要根据随机slide修正基地址
+     this->recursiveRebase(context);
+
+     // ⚠️ recursiveBind对于noLazy的符号进行绑定，lazy的符号会在运行时动态绑定
+     this->recursiveBind(context, forceLazysBound, neverUnload);
+ }
+
+ link()函数中主要做了以下的工作：
+ 1、recursiveLoadlibraries() 递归加载所有的依赖库
+ 2、recursiveRebase() 递归修正自己和依赖库的基址
+ 3、recursiveBind() 递归进行符号绑定
  
+ 在递归加载了所有的依赖库过程中，加载的方法是调用loadLibrary()函数，实际上最终调用的还是load()方法，进过link()之后，主程序以及相关依赖库的地址得到了修正，达到了进程可用的目的
  
+ */
+
+
+//MARK: - 初始化程序 - initializeMainExecutable
+
+/*
+ initializeMainExecutable
+ 在link()函数执行完毕之后，会调用initializeMainExecutable()函数，可以将该函数理解为一个初始化函数。实际上，一个app启动的过程中，除了dyld做一些工作外，还有一个更重要的角色，就是runtime，而且runtime和dyld是紧密联系的。runtime里面注册了一些dyld的通知，这些通知是在runtime初始化的时候注册的。其中有一个通知是，当有新的镜像加载时，会执行runtime中的load-images()函数；
+ load-images()函数做了哪些操作：👇
+ 
+ void load_images(const char *path __unused, const struct mach_header *mh)
+ {
+     // ⚠️ 判断有没有load方法，没有直接返回
+     if (!hasLoadMethods((const headerType *)mh)) return;
+
+     // 递归锁
+     recursive_mutex_locker_t lock(loadMethodLock);
+
+     // Discover load methods
+     {
+         rwlock_writer_t lock2(runtimeLock);
+         prepare_load_methods((const headerType *)mh);
+     }
+
+     // Call +load methods (without runtimeLock - re-entrant)
+     call_load_methods();
+ }
+
+ 在加载镜像的过程中，即调用load_images()函数里，首先调用了prepare_load_images()函数，判断有没有loadMethod，有的话接着调用call_load_methods()函数；先看下prepare_load_images()函数的实现：👇
+ 
+ void prepare_load_methods(const headerType *mhdr)
+ {
+     size_t count, i;
+     classref_t *classlist =
+         _getObjc2NonlazyClassList(mhdr, &count);
+     for (i = 0; i < count; i++) {
+         schedule_class_load(remapClass(classlist[i]));
+     }
+
+     category_t **categorylist = _getObjc2NonlazyCategoryList(mhdr, &count);
+     for (i = 0; i < count; i++) {
+         category_t *cat = categorylist[i];
+         Class cls = remapClass(cat->cls);
+         if (!cls) continue;  // category for ignored weak-linked class
+         realizeClass(cls);
+         assert(cls->ISA()->isRealized());
+         // ⚠️将分类加到loadable_list()里面去??
+         add_category_to_loadable_list(cat);
+     }
+ }
+
+ _getObjc2NonlazyClassList()函数获取到了所有的列表，而remapClass()函数是取得了该类的所有指针，然后调用了schedule_class_load()函数，看下schedule_class_load()函数实现：👇
+ 
+ static void schedule_class_load(Class cls)
+ {
+     if (!cls) return;
+     assert(cls->isRealized());  // _read_images should realize
+     if (cls->data()->flags & RW_LOADED) return;
+     ⚠️ 优先加载父类的load方法
+     // Ensure superclass-first ordering
+     schedule_class_load(cls->superclass);
+     add_class_to_loadable_list(cls);
+     cls->setInfo(RW_LOADED);
+ }
+
+ 从这段代码，可以知道，将子类添加到加载列表之前，其父类一定会优先加载到列表中，这也是为何父类的+load方法在子类的+load方法之前调用的根本原因。
+ 
+ 我们再看load_images()函数里 call_load_methods()函数的实现:👇
+ void call_load_methods(void)
+ {
+     static bool loading = NO;
+     bool more_categories;
+     loadMethodLock.assertLocked();
+     if (loading) return;
+     loading = YES;
+
+     ⚠️: 出现自动释放池，是不是main函数的自动释放池呢？
+     void *pool = objc_autoreleasePoolPush();
+
+     do {
+         while (loadable_classes_used > 0) {
+             call_class_loads();
+         }
+         more_categories = call_category_loads();
+     } while (loadable_classes_used > 0  ||  more_categories);
+     objc_autoreleasePoolPop(pool);
+     loading = NO;
+ }
+ 
+ 从call_load_methods()函数里面得知，函数里面会调用call_class_loads()，看下它的实现：👇
+ 
+ static void call_class_loads(void)
+ {
+     int i;
+     struct loadable_class *classes = loadable_classes;
+     int used = loadable_classes_used;
+     loadable_classes = nil;
+     loadable_classes_allocated = 0;
+     loadable_classes_used = 0;
+
+     // Call all +loads for the detached list.
+     for (i = 0; i < used; i++) {
+         Class cls = classes[i].cls;
+         load_method_t load_method = (load_method_t)classes[i].method;
+         if (!cls) continue;
+         if (PrintLoading) {
+             _objc_inform("LOAD: +[%s load]\n", cls->nameForLogging());
+         }
+         (*load_method)(cls, SEL_load);
+     }
+
+     if (classes) free(classes);
+ }
+ 
+ 从call_class_loads()函数分析得知，其主要是从待加载的类列表loadable_classes中寻找对应的类，然后找到@selector(load)的实现并执行
+
+ */
+
+//MARK: - 返回主函数main的地址值   -  getThreadPC
+
+/*
+ getThreadPC
+ 
+ getThreadPC是ImageLoaderMachO中的方法，主要功能是获取app main函数的地址，看下其实现逻辑：
+ 
+ void* ImageLoaderMachO::getThreadPC() const
+ {
+     const uint32_t cmd_count = ((macho_header*)fMachOData)->ncmds;
+     const struct load_command* const cmds = (struct load_command*)&fMachOData[sizeof(macho_header)];
+     const struct load_command* cmd = cmds;
+     for (uint32_t i = 0; i < cmd_count; ++i) {
+         // 遍历loadCommand,加载loadCommand中的'LC_MAIN'所指向的偏移地址
+         if ( cmd->cmd == LC_MAIN ) {
+             entry_point_command* mainCmd = (entry_point_command*)cmd;
+             // 偏移量 + header所占的字节数，就是main的入口
+             void* entry = (void*)(mainCmd->entryoff + (char*)fMachOData);
+             if ( this->containsAddress(entry) )
+                 return entry;
+             else
+                 throw "LC_MAIN entryoff is out of range";
+         }
+         cmd = (const struct load_command*)(((char*)cmd)+cmd->cmdsize);
+     }
+     return NULL;
+ }
+ 
+ getThreadPC()函数，主要就是遍历loadCommand，找到“LC_MAIN”指令，得到该指令所指向的偏移地址，经过处理后，就得到了main函数的地址，然后将此地址返回给_dyld_start。_dyld_start中的main函数地址保存在寄存器后，跳转到对应的地址，开始执行main函数，至此，一个app的启动流程正式完成。
+
+ 
+ */
+
+
+//MARK: - 总结
+
+/*
+ 在上面，已经将_main()函数中的每个流程中的关键函数都介绍完毕，最后来看先main()函数的实现
+ 
+ uintptr_t
+ _main(const macho_header* mainExecutableMH, uintptr_t mainExecutableSlide,
+         int argc, const char* argv[], const char* envp[], const char* apple[],
+         uintptr_t* startGlue)
+ {
+     uintptr_t result = 0;
+     sMainExecutableMachHeader = mainExecutableMH;
+     // 处理环境变量，用于打印
+     if ( sEnv.DYLD_PRINT_OPTS )
+         printOptions(argv);
+     if ( sEnv.DYLD_PRINT_ENV )
+         printEnvironmentVariables(envp);
+     try {
+         // ⚠️ 1、将主程序转变为一个ImageLoader对象
+         sMainExecutable = instantiateFromLoadedImage(mainExecutableMH, mainExecutableSlide, sExecPath);
+         if ( gLinkContext.sharedRegionMode != ImageLoader::kDontUseSharedRegion ) {
+             // ⚠️2、将共享库加载到内存中
+             mapSharedCache();
+         }
+         // ⚠️3、加载环境变量DYLD_INSERT_LIBRARIES中的动态库，使用loadInsertedDylib进行加载
+         if  ( sEnv.DYLD_INSERT_LIBRARIES != NULL ) {
+             for (const char* const* lib = sEnv.DYLD_INSERT_LIBRARIES; *lib != NULL; ++lib)
+                 loadInsertedDylib(*lib);
+         }
+         // ⚠️4、链接
+         link(sMainExecutable, sEnv.DYLD_BIND_AT_LAUNCH, true, ImageLoader::RPathChain(NULL, NULL), -1);
+         // ⚠️5、初始化
+         initializeMainExecutable();
+         // ⚠️6、寻找main函数入口
+         result = (uintptr_t)sMainExecutable->getThreadPC();
+     }
+     return result;
+ }
+
+ 从程序调用了dyld入口了开始：
+ 
+ 1、执行_dyld_start()，_dyld_start()里面调用了_main()函数
+ 在main函数里面大概流程：
+  - 先将主程序转化成ImageLoader对象： instantiateFromLoadedImage();
+  - 将共享库加载到内存中： mapsharedCache()；
+  - 加载依赖的动态库： loadInsertedDylib()；
+  - 动态链接库： link()；
+  - 初始化程序：initializeMainExecutable();
+  - 寻找main函数入口：getThreadPC()
  */
