@@ -13,6 +13,8 @@
 		FF0182E325E5FB96006268A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0182E125E5FB96006268A4 /* Main.storyboard */; };
 		FF0182E525E5FB96006268A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF0182E425E5FB96006268A4 /* Assets.xcassets */; };
 		FF0182E825E5FB96006268A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0182E625E5FB96006268A4 /* LaunchScreen.storyboard */; };
+		FF49C19C260986AC008906E6 /* BuildAndSignature .swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49C19B260986AC008906E6 /* BuildAndSignature .swift */; };
+		FF49C1F52609E99C008906E6 /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49C1F42609E99C008906E6 /* Signature.swift */; };
 		FF4ADCDA260195B70014B335 /* XNU.png in Resources */ = {isa = PBXBuildFile; fileRef = FF4ADCD9260195B70014B335 /* XNU.png */; };
 		FF4ADCDD26019C980014B335 /* About XNU.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4ADCDC26019C980014B335 /* About XNU.swift */; };
 		FF4ADCE72601F1250014B335 /* dyld.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4ADCE62601F1250014B335 /* dyld.swift */; };
@@ -54,6 +56,8 @@
 		FF0182F225E60038006268A4 /* 代码上传到GitHub.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "代码上传到GitHub.md"; sourceTree = "<group>"; };
 		FF0769572604A153003F2BFC /* 一些常用的、专业的术语.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "一些常用的、专业的术语.md"; sourceTree = "<group>"; };
 		FF250BD025FEF7CE00FB9FCC /* 网络HTTP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "网络HTTP.md"; sourceTree = "<group>"; };
+		FF49C19B260986AC008906E6 /* BuildAndSignature .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuildAndSignature .swift"; sourceTree = "<group>"; };
+		FF49C1F42609E99C008906E6 /* Signature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signature.swift; sourceTree = "<group>"; };
 		FF4ADCD9260195B70014B335 /* XNU.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = XNU.png; sourceTree = "<group>"; };
 		FF4ADCDC26019C980014B335 /* About XNU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "About XNU.swift"; sourceTree = "<group>"; };
 		FF4ADCE62601F1250014B335 /* dyld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dyld.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 		FF0182DA25E5FB96006268A4 /* WorkingIssues */ = {
 			isa = PBXGroup;
 			children = (
+				FFBBCBD326089513002A3C22 /* App构建及签名 */,
+				FF49C19E2609BA8A008906E6 /* App签名机制 */,
 				FF4ADCD82601954A0014B335 /* App完整的启动过程 */,
 				FF9FEA3025FAFC1700088DB8 /* DesignDemol */,
 				FF0182DB25E5FB96006268A4 /* AppDelegate.swift */,
@@ -131,6 +137,14 @@
 				FF95EC5E25F9B01100204968 /* 设计模式.md */,
 			);
 			path = WorkingIssues;
+			sourceTree = "<group>";
+		};
+		FF49C19E2609BA8A008906E6 /* App签名机制 */ = {
+			isa = PBXGroup;
+			children = (
+				FF49C1F42609E99C008906E6 /* Signature.swift */,
+			);
+			path = "App签名机制";
 			sourceTree = "<group>";
 		};
 		FF4ADCD82601954A0014B335 /* App完整的启动过程 */ = {
@@ -195,6 +209,14 @@
 				FF9FEA7625FAFEAD00088DB8 /* Virtual Proxy.swift */,
 			);
 			path = "结构型Demol";
+			sourceTree = "<group>";
+		};
+		FFBBCBD326089513002A3C22 /* App构建及签名 */ = {
+			isa = PBXGroup;
+			children = (
+				FF49C19B260986AC008906E6 /* BuildAndSignature .swift */,
+			);
+			path = "App构建及签名";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,9 +304,11 @@
 				FF9FEA3525FAFCC600088DB8 /* Chain Of Responsibility.swift in Sources */,
 				FF9FEA5025FAFD5F00088DB8 /* Visitor.swift in Sources */,
 				FF0182E025E5FB96006268A4 /* ViewController.swift in Sources */,
+				FF49C19C260986AC008906E6 /* BuildAndSignature .swift in Sources */,
 				FF0182DC25E5FB96006268A4 /* AppDelegate.swift in Sources */,
 				FF9FEA5925FAFE0D00088DB8 /* Factory Method.swift in Sources */,
 				FF9FEA3825FAFCE800088DB8 /* Command.swift in Sources */,
+				FF49C1F52609E99C008906E6 /* Signature.swift in Sources */,
 				FF9FEA6225FAFE3E00088DB8 /* Adapter.swift in Sources */,
 				FF9FEA6E25FAFE7D00088DB8 /* Flyweight.swift in Sources */,
 				FF9FEA6825FAFE5900088DB8 /* Composite.swift in Sources */,
