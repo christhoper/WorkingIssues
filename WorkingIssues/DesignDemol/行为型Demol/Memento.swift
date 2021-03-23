@@ -22,11 +22,12 @@ protocol MementoConvertible {
     init?(memento: Memento)
 }
 
+//MARK: - 状态
 struct GameState: MementoConvertible {
     
     private enum Keys {
-        static let chapter = "com.1"
-        static let weapon = "com.2"
+        static let chapter = "com.chapter"
+        static let weapon = "com.weapon"
     }
     
     var chapter: String
@@ -47,5 +48,43 @@ struct GameState: MementoConvertible {
     
     var memento: Memento {
         return [Keys.chapter: chapter, Keys.weapon: weapon]
+    }
+}
+
+//MARK: - 管理者（Caretaker）
+
+enum CheckPoint {
+    
+    private static let defaults = UserDefaults.standard
+    static func save(_ state: MementoConvertible, saveName: String) {
+        defaults.setValue(state.memento, forKey: saveName)
+        defaults.synchronize()
+    }
+    
+    static func restore(saveName: String) -> Any? {
+        return defaults.object(forKey: saveName)
+    }
+}
+
+class MementoTest {
+    
+    init() {}
+    
+    func test() {
+        var gameState = GameState(chapter: "章节", weapon: "武器")
+        gameState.chapter = "第一章：序幕"
+        gameState.weapon = "木棍"
+        CheckPoint.save(gameState, saveName: "玩家1")
+        
+        gameState.chapter = "第二章：寻找"
+        gameState.weapon = "木筏"
+        CheckPoint.save(gameState, saveName: "玩家2")
+        
+        if let memento = CheckPoint.restore(saveName: "玩家1") as? Memento {
+            let finalState = GameState(memento: memento)
+            // dump函数：全局函数，打印出某个对象多有的信息
+            dump(finalState)
+        }
+        
     }
 }
