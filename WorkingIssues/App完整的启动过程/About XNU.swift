@@ -12,7 +12,7 @@ import Foundation
 /*
  操作系统内核（X is not Unix）
  
- 相关术语：dyld（动态链接器），Mach-O文件，execve（执行），parse（解析），segment（程序段？地址？内存块？）
+ 相关术语：dyld（动态链接器），Mach-O（ios可执行文件），execve（执行），parse（解析），segment（程序段，相关的还有section）
 */
 
 
