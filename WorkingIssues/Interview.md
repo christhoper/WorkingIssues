@@ -97,3 +97,6 @@ heap segment  （堆区）
 * 19、HTTP和HTTPS的区别？
 
 * 20、TSL的工作流程是什么？
+
+* 21、为什么可以对Objective C的字符串字面量发送消息？
+

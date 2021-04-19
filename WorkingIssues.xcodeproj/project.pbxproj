@@ -54,9 +54,11 @@
 		FF0182E725E5FB96006268A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF0182E925E5FB96006268A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF0182F025E5FC19006268A4 /* 质量博客.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "质量博客.md"; sourceTree = "<group>"; };
-		FF0182F225E60038006268A4 /* 代码上传到GitHub.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "代码上传到GitHub.md"; sourceTree = "<group>"; };
+		FF0182F225E60038006268A4 /* GitHub.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = GitHub.md; sourceTree = "<group>"; };
 		FF0769572604A153003F2BFC /* 一些常用的、专业的术语.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "一些常用的、专业的术语.md"; sourceTree = "<group>"; };
 		FF250BD025FEF7CE00FB9FCC /* 网络HTTP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "网络HTTP.md"; sourceTree = "<group>"; };
+		FF321CFE2626858A00178098 /* 基本概念.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "基本概念.md"; sourceTree = "<group>"; };
+		FF321CFF262688F700178098 /* Mach-O.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Mach-O.md"; sourceTree = "<group>"; };
 		FF49C19B260986AC008906E6 /* BuildAndSignature .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuildAndSignature .swift"; sourceTree = "<group>"; };
 		FF49C1F42609E99C008906E6 /* Signature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signature.swift; sourceTree = "<group>"; };
 		FF4ADCD9260195B70014B335 /* XNU.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = XNU.png; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		FF4ADCE62601F1250014B335 /* dyld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dyld.swift; sourceTree = "<group>"; };
 		FF5139A9260D80770025BA8F /* Interview.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Interview.md; sourceTree = "<group>"; };
 		FF513A00260DD3CA0025BA8F /* iOS知识.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "iOS知识.rtf"; sourceTree = "<group>"; };
+		FF7E43B2262D67AC0069428F /* dyld3启动流程.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "dyld3启动流程.md"; sourceTree = "<group>"; };
 		FF95EC5E25F9B01100204968 /* 设计模式.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "设计模式.md"; sourceTree = "<group>"; };
 		FF999F5325EB86F800C55441 /* 网络TCP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "网络TCP.md"; sourceTree = "<group>"; };
 		FF9FEA3425FAFCC600088DB8 /* Chain Of Responsibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chain Of Responsibility.swift"; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 		FF9FEA7025FAFE8800088DB8 /* Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facade.swift; sourceTree = "<group>"; };
 		FF9FEA7325FAFE9D00088DB8 /* Protection Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protection Proxy.swift"; sourceTree = "<group>"; };
 		FF9FEA7625FAFEAD00088DB8 /* Virtual Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Virtual Proxy.swift"; sourceTree = "<group>"; };
+		FFE7296A261D4A100040F105 /* 优化构建时间相关.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "优化构建时间相关.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,25 +125,27 @@
 		FF0182DA25E5FB96006268A4 /* WorkingIssues */ = {
 			isa = PBXGroup;
 			children = (
-				FF5139FF260DD3AA0025BA8F /* 一些整理 */,
-				FFBBCBD326089513002A3C22 /* App构建及签名 */,
-				FF49C19E2609BA8A008906E6 /* App签名机制 */,
-				FF4ADCD82601954A0014B335 /* App完整的启动过程 */,
-				FF9FEA3025FAFC1700088DB8 /* DesignDemol */,
+				FF0182F225E60038006268A4 /* GitHub.md */,
+				FF95EC5E25F9B01100204968 /* 设计模式.md */,
+				FF250BD025FEF7CE00FB9FCC /* 网络HTTP.md */,
+				FF999F5325EB86F800C55441 /* 网络TCP.md */,
+				FF0769572604A153003F2BFC /* 一些常用的、专业的术语.md */,
+				FFE7296A261D4A100040F105 /* 优化构建时间相关.md */,
+				FF0182F025E5FC19006268A4 /* 质量博客.md */,
+				FF5139A9260D80770025BA8F /* Interview.md */,
+				FF0182E925E5FB96006268A4 /* Info.plist */,
 				FF0182DB25E5FB96006268A4 /* AppDelegate.swift */,
 				FF0182DD25E5FB96006268A4 /* SceneDelegate.swift */,
 				FF0182DF25E5FB96006268A4 /* ViewController.swift */,
-				FF0182E125E5FB96006268A4 /* Main.storyboard */,
 				FF0182E425E5FB96006268A4 /* Assets.xcassets */,
+				FF5139FF260DD3AA0025BA8F /* 一些整理 */,
+				FFBBCBD326089513002A3C22 /* App构建及签名 */,
+				FFF1CF802623F1DB00180D19 /* App启动优化 */,
+				FF49C19E2609BA8A008906E6 /* App签名机制 */,
+				FF4ADCD82601954A0014B335 /* App完整的启动过程 */,
+				FF9FEA3025FAFC1700088DB8 /* DesignDemol */,
 				FF0182E625E5FB96006268A4 /* LaunchScreen.storyboard */,
-				FF0182E925E5FB96006268A4 /* Info.plist */,
-				FF0769572604A153003F2BFC /* 一些常用的、专业的术语.md */,
-				FF0182F025E5FC19006268A4 /* 质量博客.md */,
-				FF0182F225E60038006268A4 /* 代码上传到GitHub.md */,
-				FF999F5325EB86F800C55441 /* 网络TCP.md */,
-				FF250BD025FEF7CE00FB9FCC /* 网络HTTP.md */,
-				FF95EC5E25F9B01100204968 /* 设计模式.md */,
-				FF5139A9260D80770025BA8F /* Interview.md */,
+				FF0182E125E5FB96006268A4 /* Main.storyboard */,
 			);
 			path = WorkingIssues;
 			sourceTree = "<group>";
@@ -155,6 +161,7 @@
 		FF4ADCD82601954A0014B335 /* App完整的启动过程 */ = {
 			isa = PBXGroup;
 			children = (
+				FFF1CF822623F43B00180D19 /* 一些基本的相关概念 */,
 				FF4ADCD9260195B70014B335 /* XNU.png */,
 				FF4ADCDC26019C980014B335 /* About XNU.swift */,
 				FF4ADCE62601F1250014B335 /* dyld.swift */,
@@ -230,6 +237,23 @@
 				FF49C19B260986AC008906E6 /* BuildAndSignature .swift */,
 			);
 			path = "App构建及签名";
+			sourceTree = "<group>";
+		};
+		FFF1CF802623F1DB00180D19 /* App启动优化 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "App启动优化";
+			sourceTree = "<group>";
+		};
+		FFF1CF822623F43B00180D19 /* 一些基本的相关概念 */ = {
+			isa = PBXGroup;
+			children = (
+				FF321CFE2626858A00178098 /* 基本概念.md */,
+				FF321CFF262688F700178098 /* Mach-O.md */,
+				FF7E43B2262D67AC0069428F /* dyld3启动流程.md */,
+			);
+			path = "一些基本的相关概念";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -465,7 +489,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -480,6 +504,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6C95N65QXM;
 				INFOPLIST_FILE = WorkingIssues/Info.plist;
@@ -499,6 +524,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6C95N65QXM;
 				INFOPLIST_FILE = WorkingIssues/Info.plist;
