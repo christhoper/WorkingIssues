@@ -161,7 +161,7 @@ import Foundation
      }
  }
  
- loadInsertedDylib()函数里面主要调用了load()函数（）这个是ImageLoader对象的方法，load()函数实现逻辑：👇
+ loadInsertedDylib()函数里面主要调用了load()函数,这个是ImageLoader对象的方法，load()函数实现逻辑：👇
  // load函数是一系列查找动态库的入口
  ImageLoader* load(const char* path, const LoadContext& context, unsigned& cacheIndex)
  {
