@@ -38,8 +38,8 @@
 栈：先进后出
 
 **堆栈空间分配：**
-- 堆区(Stack)：由编译器自动分配释放，存放函数的参数值，局部变量等。其操作方式类似数据结构中的栈；
-- 栈区(Heap)：一般由程序员分配释放，若不及时释放，则可能会引起内存泄漏。类似链表；
+- 堆区(Stack)：一般由程序员分配释放，若不及时释放，则可能会引起内存泄漏。类似链表；
+- 栈区(Heap)：由编译器自动分配释放，存放函数的参数值，局部变量等。其操作方式类似数据结构中的栈；
 
 **堆栈缓存方式：**
 - 运行代码使用的空间在三个不同的内存区域，分成三个段：
@@ -66,7 +66,10 @@ heap segment  （堆区）
 - 值类型和引用类型
 
 
-* 5、KVO底层实现是什么？如何手动实现KVO？
+* 5、KVO底层实现是什么？如何手动实现KVO？  （用**Person**来说）
+- 当person对象添加了KVO后，通过isa-swizzling技术，把person对象的isa指针指向了一个叫NSKVONotifyin_Person的新对象，NSKVONotifyin_Person重写了Person的set、class、dealloc、_isKVO方法，当NSKVONotifyin_Person执行了dealloc方法时，又把isa指针，指向了class方法获取到的Person对象。isa指针修改完之后，NSKVONotifyin_Peson对象不会被销毁（为什么：为了重用）
+
+- 手动触发： 先调用willChangeValueForKey方法，再调用didChangeValueForKey
 
 * 6、说说消息机制？
 
@@ -74,7 +77,7 @@ heap segment  （堆区）
 
 * 8、weak底层实现原理是什么？
 
-* 9、KVC底层实现原理是什么？
+* 9、KVC底层实现原理是什么？使用场景都有哪些?
 
 * 10、什么是Block，Block底层实现原理是什么？
 
@@ -92,11 +95,17 @@ heap segment  （堆区）
 
 * 17、TCP头部报文字段都有哪些？
 
-* 18、TCp三次握手过程？四次挥手过程？
+* 18、TCP三次握手过程？四次挥手过程？
 
 * 19、HTTP和HTTPS的区别？
 
-* 20、TSL的工作流程是什么？
+* 20、TSL、SSL的工作流程是什么？
 
 * 21、为什么可以对Objective C的字符串字面量发送消息？
 
+* 22、一个NSObject对象占用多少内存，isa指针呢？
+- NSObject内存占用16字节，isa指针占用8字节。
+
+* 23、什么是静态库、动态库呢？两者的区别是什么？
+- 
+- 静态库拓展：静态库编译时会链接到Mach-O文件中，会增加APP的体积大小，如果需要更新，则就要重新编译一次
