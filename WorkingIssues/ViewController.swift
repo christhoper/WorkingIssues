@@ -18,6 +18,10 @@ class ViewController: UIViewController {
         iteratorTest()
         mediatorTest()
         mementoTest()
+        observerTest()
+        stateTest()
+        strategyTest()
+        visitorTest()
     }
 
     func chainOfResponsibilityTest() {
@@ -53,5 +57,41 @@ class ViewController: UIViewController {
         memnto.test()
     }
     
+    func observerTest() {
+        let observer = Observer()
+        let testChamber = TestChambers()
+        testChamber.observer = observer
+        testChamber.testChambersNumber = 1
+    }
+    
+    
+    func stateTest() {
+        let userContext = Context()
+        userContext.changeStateToAuthorized(userId: "hend")
+        print("当前login", userContext.userId as Any, userContext.isAuthorized)
+        userContext.changeStateToUnAuthorized()
+        print("相当于取消了login", userContext.userId as Any, userContext.isAuthorized)
+    }
+    
+    func strategyTest() {
+        let rachel = TestSubject(pupilDiameter: 30.3, blushResponse: 0.0, isOrganic: false)
+        let deckard = BladeRunner(test: VoightKampffTest())
+        let isRachelAndroid = deckard.testIfAndroid(rachel)
+        print("isRachelAndroid", isRachelAndroid)
+        let gaff = BladeRunner(test: GeneticTest())
+        let gaffAndroid = gaff.testIfAndroid(rachel)
+        print("gaffAndroid", gaffAndroid)
+    }
+    
+    func visitorTest() {
+        let planets: [Planet] = [PlanetAlderan(), PlanetTatoonie(), PlanetCoruscant(), MoonJedda()]
+        let names = planets.map { planet -> String in
+            let visitor = NameVisitor()
+            planet.accept(visitor: visitor)
+            return visitor.name
+        }
+        
+        print("访问者", names)
+    }
 }
 
