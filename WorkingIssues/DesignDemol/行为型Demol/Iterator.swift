@@ -7,7 +7,7 @@
 
 import Foundation
 
-//MARK: - 迭代器
+//MARK: - 迭代器: Iterator
 /*
  迭代器模式可以让用户通过特定的接口巡防容器中的每一个元素而不用了解底层的实现
  */

@@ -13,3 +13,5 @@ git branch --set-upstream main origin/main
 （设置完之后，下次提交的时候直接 git pull 或者git push就行，不然每次都需要 git pull(push) origin main）
 * 10、将代码提交到GitHub：git push -u origin main
 
+目前推送代码到GitHub上面的话，需要用token了，而不是登录密码，生成token参考：
+[生成token](https://blog.csdn.net/weixin_41010198/article/details/119698015)
