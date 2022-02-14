@@ -19,6 +19,8 @@
 		FF4ADCDD26019C980014B335 /* About XNU.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4ADCDC26019C980014B335 /* About XNU.swift */; };
 		FF4ADCE72601F1250014B335 /* dyld.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4ADCE62601F1250014B335 /* dyld.swift */; };
 		FF513A01260DD3CA0025BA8F /* iOS知识.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FF513A00260DD3CA0025BA8F /* iOS知识.rtf */; };
+		FF719E31277315900087C275 /* DesignDemolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF719E30277315900087C275 /* DesignDemolViewController.swift */; };
+		FF719E3327732AA30087C275 /* Monostate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF719E3227732AA30087C275 /* Monostate.swift */; };
 		FF778CEE26314A35004F4C6A /* 多线程相关.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF778CED26314A35004F4C6A /* 多线程相关.swift */; };
 		FF9FEA3525FAFCC600088DB8 /* Chain Of Responsibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA3425FAFCC600088DB8 /* Chain Of Responsibility.swift */; };
 		FF9FEA3825FAFCE800088DB8 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FEA3725FAFCE800088DB8 /* Command.swift */; };
@@ -70,8 +72,14 @@
 		FF5139A9260D80770025BA8F /* Interview.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Interview.md; sourceTree = "<group>"; };
 		FF513A00260DD3CA0025BA8F /* iOS知识.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "iOS知识.rtf"; sourceTree = "<group>"; };
 		FF65DB2E26F1986D00115999 /* Runtime应用.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Runtime应用.md"; sourceTree = "<group>"; };
+		FF68E92027B9ECCE004D5253 /* 备战.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "备战.md"; sourceTree = "<group>"; };
+		FF719E30277315900087C275 /* DesignDemolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignDemolViewController.swift; sourceTree = "<group>"; };
+		FF719E3227732AA30087C275 /* Monostate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monostate.swift; sourceTree = "<group>"; };
 		FF778CED26314A35004F4C6A /* 多线程相关.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "多线程相关.swift"; sourceTree = "<group>"; };
 		FF7897C126F2E5F900F44CA3 /* RunLoop应用.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "RunLoop应用.md"; sourceTree = "<group>"; };
+		FF78BCDF274DD7E5001255C5 /* 结构型模式说明.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "结构型模式说明.md"; sourceTree = "<group>"; };
+		FF78BCE0274DD8B9001255C5 /* 行为型模式说明.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "行为型模式说明.md"; sourceTree = "<group>"; };
+		FF78BCE1274DD95E001255C5 /* 创建型模式说明.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "创建型模式说明.md"; sourceTree = "<group>"; };
 		FF95EC5E25F9B01100204968 /* 设计模式.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "设计模式.md"; sourceTree = "<group>"; };
 		FF999F5325EB86F800C55441 /* 网络TCP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "网络TCP.md"; sourceTree = "<group>"; };
 		FF9DEFEC26E89442007220A7 /* 编译优化.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "编译优化.md"; sourceTree = "<group>"; };
@@ -151,10 +159,12 @@
 				FF0182F025E5FC19006268A4 /* 质量博客.md */,
 				FF0182F225E60038006268A4 /* GitHub.md */,
 				FF5139A9260D80770025BA8F /* Interview.md */,
+				FF68E92027B9ECCE004D5253 /* 备战.md */,
 				FF0182E925E5FB96006268A4 /* Info.plist */,
 				FF0182DB25E5FB96006268A4 /* AppDelegate.swift */,
 				FF0182DD25E5FB96006268A4 /* SceneDelegate.swift */,
 				FF0182DF25E5FB96006268A4 /* ViewController.swift */,
+				FF719E30277315900087C275 /* DesignDemolViewController.swift */,
 				FF0182E425E5FB96006268A4 /* Assets.xcassets */,
 				FFB7806326E365A000009620 /* GNUStep */,
 				FF778CEB2631464B004F4C6A /* 多线程 */,
@@ -236,6 +246,7 @@
 				FF9FEA4925FAFD4100088DB8 /* State.swift */,
 				FF9FEA4C25FAFD4E00088DB8 /* Strategy.swift */,
 				FF9FEA4F25FAFD5F00088DB8 /* Visitor.swift */,
+				FF78BCE0274DD8B9001255C5 /* 行为型模式说明.md */,
 			);
 			path = "行为型Demol";
 			sourceTree = "<group>";
@@ -248,6 +259,8 @@
 				FF9FEA5825FAFE0D00088DB8 /* Factory Method.swift */,
 				FF9FEA5B25FAFE1E00088DB8 /* Prototype.swift */,
 				FF9FEA5E25FAFE2A00088DB8 /* Singleton.swift */,
+				FF719E3227732AA30087C275 /* Monostate.swift */,
+				FF78BCE1274DD95E001255C5 /* 创建型模式说明.md */,
 			);
 			path = "创建型Demol";
 			sourceTree = "<group>";
@@ -263,6 +276,7 @@
 				FF9FEA7025FAFE8800088DB8 /* Facade.swift */,
 				FF9FEA7325FAFE9D00088DB8 /* Protection Proxy.swift */,
 				FF9FEA7625FAFEAD00088DB8 /* Virtual Proxy.swift */,
+				FF78BCDF274DD7E5001255C5 /* 结构型模式说明.md */,
 			);
 			path = "结构型Demol";
 			sourceTree = "<group>";
@@ -402,9 +416,11 @@
 				FF9FEA3E25FAFD0500088DB8 /* Iterator.swift in Sources */,
 				FF9FEA5F25FAFE2A00088DB8 /* Singleton.swift in Sources */,
 				FF9FEA7125FAFE8800088DB8 /* Facade.swift in Sources */,
+				FF719E31277315900087C275 /* DesignDemolViewController.swift in Sources */,
 				FF9FEA6B25FAFE6500088DB8 /* Decorator.swift in Sources */,
 				FF9FEA7725FAFEAD00088DB8 /* Virtual Proxy.swift in Sources */,
 				FF9FEA4725FAFD3400088DB8 /* Observer.swift in Sources */,
+				FF719E3327732AA30087C275 /* Monostate.swift in Sources */,
 				FF778CEE26314A35004F4C6A /* 多线程相关.swift in Sources */,
 				FF9FEA3B25FAFCF700088DB8 /* Interpreter.swift in Sources */,
 				FF9FEA4A25FAFD4100088DB8 /* State.swift in Sources */,
