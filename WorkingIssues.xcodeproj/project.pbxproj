@@ -110,6 +110,7 @@
 		FFA0901526EF4490002FAFA0 /* WorkingIssues-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WorkingIssues-Bridging-Header.h"; sourceTree = "<group>"; };
 		FFA0901626EF4490002FAFA0 /* TimerTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerTarget.h; sourceTree = "<group>"; };
 		FFA0901726EF4490002FAFA0 /* TimerTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerTarget.m; sourceTree = "<group>"; };
+		FFADDA4627C60F9800345285 /* Profile.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Profile.md; sourceTree = "<group>"; };
 		FFDDC751262EC00300A7F127 /* 基本概念.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "基本概念.md"; sourceTree = "<group>"; };
 		FFDDC752262EC00300A7F127 /* 整个启动过程.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = "整个启动过程.webp"; sourceTree = "<group>"; };
 		FFDDC753262EC00300A7F127 /* dyld3启动流程.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "dyld3启动流程.md"; sourceTree = "<group>"; };
@@ -160,6 +161,7 @@
 				FF0182F225E60038006268A4 /* GitHub.md */,
 				FF5139A9260D80770025BA8F /* Interview.md */,
 				FF68E92027B9ECCE004D5253 /* 备战.md */,
+				FFADDA4627C60F9800345285 /* Profile.md */,
 				FF0182E925E5FB96006268A4 /* Info.plist */,
 				FF0182DB25E5FB96006268A4 /* AppDelegate.swift */,
 				FF0182DD25E5FB96006268A4 /* SceneDelegate.swift */,
