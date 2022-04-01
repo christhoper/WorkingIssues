@@ -142,7 +142,7 @@ Tips：埋点的时候，注意 didFinishLaunchNotification 这个通知，不�
 * 8、+load 和静态初始化被调用，除了方法本身耗时，这里还会引起大量 Page In；
 * 9、初始化 `UIApplication`，启动 Main Runloop；
 * 10、执行 `will/didFinishLaunch`，这里主要是业务代码耗时；
-* 11、Layou，`viewDidLoad` 和 `LayoutsubViews`会在这里调用，`Autolayout`太多会影响这部分时间；
+* 11、Layout，`viewDidLoad` 和 `LayoutsubViews`会在这里调用，`Autolayout`太多会影响这部分时间；
 * 12、Display，`drawRect`会调用；
 * 13、Prepare，图片解码发生在这一步；
 * 14、Commit，首帧渲染数据打包发给RenderServer，启动结束。
